@@ -5,25 +5,12 @@ import BackToTopButton from "./components/common/BackToTopButton";
 import Footer from "./components/common/Footer";
 import Navbar from "./components/common/Navbar";
 import {
-  HomeTwo,
-  HomeThree,
   About,
-  AboutTwo,
   Services,
-  ServicesTwo,
   Property,
-  PropertyTwo,
-  PropertyThree,
-  PropertyFour,
-  PropertyFive,
-  PropertySix,
   Blog,
-  BlogTwo,
-  BlogThree,
-  BlogFour,
   Contact,
   Portifolio,
-  PortifolioTwo,
   Team,
   Faqs,
   PageNotFound,
@@ -54,7 +41,7 @@ function App() {
   }, [route]);
 
   return (
-    <div>
+    <main>
       <Navbar />
       <Dropdown />
       <div
@@ -64,28 +51,14 @@ function App() {
       >
         <Routes>
           <Route path="/" element={<Home />} />
-          {/* <Route path="/home-2" element={<HomeTwo />} /> */}
-          {/* <Route path="/home-3" element={<HomeThree />} /> */}
           <Route path="/about-us" element={<About />} />
-          {/* <Route path="/about-2" element={<AboutTwo />} /> */}
           <Route path="/services" element={<Services />} />
-          <Route path="/services-2" element={<ServicesTwo />} />
           <Route path="/property" element={<Property />} />
-          {/* <Route path="/property-2" element={<PropertyTwo />} /> */}
-          {/* <Route path="/property-3" element={<PropertyThree />} /> */}
-          {/* <Route path="/property-4" element={<PropertyFour />} /> */}
-          {/* <Route path="/property-5" element={<PropertyFive />} /> */}
-          {/* <Route path="/property-6" element={<PropertySix />} /> */}
           <Route path="/blog" element={<Blog />} />
-          {/* <Route path="/blog-2" element={<BlogTwo />} /> */}
-          {/* <Route path="/blog-3" element={<BlogThree />} /> */}
-          {/* <Route path="/blog-4" element={<BlogFour />} /> */}
           <Route path="/contact" element={<Contact />} />
           <Route path="/portifolio" element={<Portifolio />} />
-          {/* <Route path="/portifolio-2" element={<PortifolioTwo />} /> */}
           <Route path="/team" element={<Team />} />
           <Route path="/faqs" element={<Faqs />} />
-          <Route path="/home" element={<Home />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </div>
@@ -96,7 +69,7 @@ function App() {
         </div>
       </div>
       <BackToTopButton showButton={showButton} />
-    </div>
+    </main>
   );
 }
 

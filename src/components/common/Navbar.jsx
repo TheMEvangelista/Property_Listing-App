@@ -20,6 +20,7 @@ const Navbar = () => {
   const { darkMode, isSidebarOpen } = useSelector(uiStore);
   const [showSearchBar, setShowSearchBar] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // Added state for login status
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -50,6 +51,12 @@ const Navbar = () => {
     navigate("/search");
   };
 
+  const handleLogout = () => {
+    // TODO: Implement actual logout logic here (e.g., clear tokens, etc.)
+    setIsLoggedIn(false);
+    navigate('/login'); // Redirect to login page after logout
+  };
+
   return (
     <div
       className="navbar fixed w-full z-20 top-0 left-0 py-2 bg-white/60 border-b backdrop-blur-sm dark:border-dark dark:bg-card-dark/60"
@@ -64,9 +71,8 @@ const Navbar = () => {
         <div className="flex-align-center gap-x-4">
           {/*-------------------------------------- Desktop Menu------------------------------------- */}
           <ul
-            className={`hidden md:flex-align-center ${
-              showSearchBar && "!hidden"
-            }`}
+            className={`hidden md:flex-align-center ${showSearchBar && "!hidden"
+              }`}
           >
             {navLinks.map((link) => (
               <SingleLink {...link} key={link.id} />
@@ -75,15 +81,13 @@ const Navbar = () => {
 
           {/*---------------------------------------- Mobile Menu------------------------------------- */}
           <div
-            className={`lg:hidden mobile-modal fixed w-screen h-screen top-0 left-0 bg-black/50 z-50 opacity-0 pointer-events-none transition-a  ${
-              isSidebarOpen && "open"
-            }`}
+            className={`lg:hidden mobile-modal fixed w-screen h-screen top-0 left-0 bg-black/50 z-50 opacity-0 pointer-events-none transition-a  ${isSidebarOpen && "open"
+              }`}
             onClick={handleCloseSidebar}
           >
             <ul
-              className={`mobile-dialog overflow-auto absolute flex flex-col space-y-4 p-3 bg-white dark:bg-card-dark h-screen max-w-[300px] w-full -translate-x-[500px] transition-a ${
-                isSidebarOpen && "open"
-              }`}
+              className={`mobile-dialog overflow-auto absolute flex flex-col space-y-4 p-3 bg-white dark:bg-card-dark h-screen max-w-[300px] w-full -translate-x-[500px] transition-a ${isSidebarOpen && "open"
+                }`}
             >
               <div className="border-b flex-center-between dark:border-slate-800">
                 <p className="uppercase">menu</p>
@@ -125,25 +129,22 @@ const Navbar = () => {
             {/*----------------------------- search Bar----------------------------------------------------- */}
             <form onSubmit={handleSubmit}>
               <div
-                className={`flex-align-center relative h-9 w-9 transition-a  border-slate-300 dark:border-dark rounded-full ${
-                  showSearchBar &&
+                className={`flex-align-center relative h-9 w-9 transition-a  border-slate-300 dark:border-dark rounded-full ${showSearchBar &&
                   "!w-[150px] md:!w-[200px] border bg-transparent text-inherit"
-                }`}
+                  }`}
               >
                 <input
                   type="search"
-                  className={`outline-none border-none h-0 w-0 bg-transparent ${
-                    showSearchBar && "!w-full !h-full px-4"
-                  }`}
+                  className={`outline-none border-none h-0 w-0 bg-transparent ${showSearchBar && "!w-full !h-full px-4"
+                    }`}
                   placeholder="search..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />
                 <span
-                  className={`grid flex-shrink-0 rounded-full w-9 h-9 place-items-center text-white bg-primary sm:cursor-pointer ${
-                    showSearchBar &&
+                  className={`grid flex-shrink-0 rounded-full w-9 h-9 place-items-center text-white bg-primary sm:cursor-pointer ${showSearchBar &&
                     "bg-transparent hover:bg-slate-100 text-inherit sm:cursor-pointer dark:hover:bg-hover-color-dark"
-                  }`}
+                    }`}
                   onClick={() => setShowSearchBar(!showSearchBar)}
                 >
                   <BiSearch className="text-muted" />
@@ -158,8 +159,8 @@ const Navbar = () => {
             >
               {darkMode ? <FiSun /> : <FiMoon />}
             </div>
-            {/*----------------------------- Profile Icon-------------------------------------------------- */}
-            <div className="bg-white shadow-md icon-box dark:bg-dark-light hover:shadow-lg hover:bg-transparent">
+            {/*----------------------------- Profile Icon or Login Button-------------------------------------------------- */}
+            <div className="bg-white shadow-md icon-box dark:bg-dark-light hover:shadow-lg hover:bg-transparent" onClick={handleLogout}>
               <BiUser />
             </div>
             {/*------------------------------- Mobile Menu Toogle------------------------- */}
