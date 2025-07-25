@@ -1,7 +1,7 @@
 import { BiBed, BiMap, BiMapAlt, BiTab } from "react-icons/bi";
 import { Link } from "react-router-dom";
-import CardHoverIcons from "./CardHoverIcons";
-import CardLabels from "./CardLabels";
+import CardHoverIcons from "../../common/page-componets/CardHoverIcons";
+import CardLabels from "../../common/page-componets/CardLabels";
 
 const SingleProductCard = ({
   name,
@@ -19,8 +19,7 @@ const SingleProductCard = ({
     <div
       className={`flex-1 ${
         basis ? basis : "basis-[18rem]"
-      } shadow-light dark:border-card-dark border rounded-lg overflow-hidden relative group`}
-    >
+      } shadow-light dark:border-card-dark border rounded-lg overflow-hidden relative group`}>
       <div className="group !opacity-100 overflow-hidden relative">
         <Link to="/" className="!opacity-100">
           <img

@@ -1,15 +1,15 @@
-import { BiChevronDown } from "react-icons/bi";
-import { useDispatch } from "react-redux";
+// import { BiChevronDown } from "react-icons/bi";
+// import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { openDropdown } from "../../features/uiSlice";
+// import { openDropdown } from "../../features/uiSlice";
 
 const SingleLink = ({ id, linkText, url, subLinks }) => {
-  const dispatch = useDispatch();
-  const handleDropDown = (e) => {
-    const linkCords = e.target.getBoundingClientRect();
-    const center = (linkCords.left + linkCords.right) / 2;
-    dispatch(openDropdown({ link: linkText, center }));
-  };
+  // const dispatch = useDispatch();
+  // const handleDropDown = (e) => {
+  //   const linkCords = e.target.getBoundingClientRect();
+  //   const center = (linkCords.left + linkCords.right) / 2;
+  //   dispatch(openDropdown({ link: linkText, center }));
+  // };
   return (
     <div className="relative">
       <NavLink
@@ -17,13 +17,32 @@ const SingleLink = ({ id, linkText, url, subLinks }) => {
         end
         key={id}
         className="relative w-full px-3 py-[0.6rem] lg:px-4 flex-align-center gap-x-1 link"
-        onMouseOver={handleDropDown}
+        // onMouseOver={handleDropDown}
       >
         {linkText}
-        {subLinks && <BiChevronDown className="link" />}
+        {/* {subLinks && <BiChevronDown className="link" />} */}
       </NavLink>
     </div>
   );
 };
-
 export default SingleLink;
+
+
+// import { NavLink } from "react-router-dom";
+
+// const SingleLink = ({ link }) => {
+//   return (
+//     <li>
+//       <NavLink
+//         to={link.url}
+//         className={({ isActive }) =>
+//           isActive ? "text-orange-500 font-semibold" : "text-gray-800"
+//         }
+//       >
+//         {link.linkText}
+//       </NavLink>
+//     </li>
+//   );
+// };
+
+// export default SingleLink;

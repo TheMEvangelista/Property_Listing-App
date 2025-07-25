@@ -71,11 +71,11 @@ footer a:hover {
 }
 
 .btn {
-  @apply px-4 py-[0.35rem] rounded-lg transition-a sm:cursor-pointer !uppercase flex-shrink-0;
+  @apply px-4 py-[0.35rem] rounded-xl transition-a sm:cursor-pointer !uppercase flex-shrink-0;
 }
 
 .btn-primary {
-  @apply bg-primary text-white hover:bg-[#f7751e] shadow-md shadow-primary/60;
+  @apply bg-primary text-white hover:bg-[#f7751e] shadow-md shadow-primary/30;
 }
 
 .btn-secondary {

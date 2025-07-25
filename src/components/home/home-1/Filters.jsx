@@ -1,4 +1,6 @@
 import { BiBriefcase, BiBuildings, BiMap, BiMoney } from "react-icons/bi";
+import { property } from "../../../data/dummyData";
+import SingleProductCard from "./SingleProductCard";
 
 const Filters = () => {
   return (
@@ -23,8 +25,7 @@ const Filters = () => {
               <select
                 name=""
                 id=""
-                className="w-full bg-transparent border-0 outline-none dark:bg-hover-color-dark opacity-70"
-              >
+                className="w-full bg-transparent border-0 outline-none dark:bg-hover-color-dark opacity-70">
                 <option value="condors">Condors</option>
                 <option value="offfice buildings">Offfice Buildings</option>
                 <option value="apartments">Apartments</option>
@@ -44,8 +45,7 @@ const Filters = () => {
               <select
                 name=""
                 id=""
-                className="w-full bg-transparent border-0 outline-none dark:bg-hover-color-dark opacity-70"
-              >
+                className="w-full bg-transparent border-0 outline-none dark:bg-hover-color-dark opacity-70">
                 <option value="$40,000 - $80,000">$40,000 - $80,000</option>
                 <option value="$80,000 - $120,000">$80,000 - $120,000</option>
                 <option value="$120,000 - $200,000">$120,000 - $200,000</option>
@@ -64,8 +64,7 @@ const Filters = () => {
               <select
                 name=""
                 id=""
-                className="w-full bg-transparent border-0 outline-none opacity-70 dark:bg-hover-color-dark"
-              >
+                className="w-full bg-transparent border-0 outline-none opacity-70 dark:bg-hover-color-dark">
                 <option value="sell">Sell</option>
                 <option value="rent">Rent</option>
               </select>
@@ -73,6 +72,11 @@ const Filters = () => {
           </div>
         </div>
         <button className="w-full btn btn-primary md:w-fit">search</button>
+      </div>
+      <div className="flex flex-wrap gap-4 mt-8">
+        {property.slice(0, 3).map((featured) => (
+          <SingleProductCard key={featured.id} {...featured} />
+        ))}
       </div>
     </div>
   );

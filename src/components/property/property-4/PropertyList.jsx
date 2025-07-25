@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { dataStore } from "../../../features/dataSlice";
-import SingleProductCard from "../../common/page-componets/SingleProductCard";
+import SingleProductCard from "../../home/home-1/SingleProductCard";
 
 const PropertyList = ({ basis }) => {
   const { currentDataItems } = useSelector(dataStore);
